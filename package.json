@@ -1,6 +1,6 @@
 {
 	"name": "jexpt",
-	"version": "1.2.0",
+	"version": "1.2.1",
 	"description": "A tool that can help you in exporting JS project in a nonstandard way",
 	"main": "index.js",
 	"scripts": {
