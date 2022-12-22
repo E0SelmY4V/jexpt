@@ -4,8 +4,7 @@ interface InitlessReged<M> {
 	req: any
 }
 interface DestObj {
-	name: string
-	dest: string
+	[name: string]: string
 }
 interface InitedReged<M> extends InitlessReged<M> {
 	req: (id: string) => any

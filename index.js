@@ -14,14 +14,18 @@ Reged.prototype = {
 	exp: null,
 	req: function () { return {}; },
 	pack: function () {
+		var exp = this.exp, req = this.req;
 		for (var i = arguments.length - 1; i >= 0; --i)
-			typeof arguments[i] === 'string'
-				? this.exp[arguments[i]] = this.req('./' + arguments[i])
-				: this.exp[arguments[i].name] = this.req('./' + arguments[i].dest);
+			if (typeof arguments[i] === 'string') exp[arguments[i]] = req('./' + arguments[i])
+			else {
+				var e = arguments[i];
+				for (var j in e) exp[j] = req('./' + e[j]);
+			}
 		return this;
 	},
 	merge: function () {
-		for (var i = arguments.length - 1; i >= 0; --i) merObj(this.exp, this.req('./' + arguments[i]));
+		var exp = this.exp, req = this.req;
+		for (var i = arguments.length - 1; i >= 0; --i) merObj(exp, req('./' + arguments[i]));
 		return this;
 	}
 };
