@@ -32,7 +32,10 @@ Reged.prototype = {
 
 function exp() {
 	var exp = arguments[0];
+	if (arguments.length === 2
+		&& arguments[1].length === 1
+		&& typeof arguments[1].cache === 'object'
+	) return new Reged(exp, arguments[1]);
 	for (var i = arguments.length - 1; i > 0; --i) merObj(exp, arguments[i]);
-	return new Reged(exp, arguments[1]);
 }
 module.exports = exp;
