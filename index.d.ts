@@ -1,4 +1,3 @@
-declare function merObj(a: any, b: any): void
 interface DestObj {
 	[name: string]: string
 }

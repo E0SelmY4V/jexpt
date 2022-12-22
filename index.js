@@ -1,11 +1,5 @@
 "use strict";
 
-function merObj(a, b) {
-	for (var i in b) typeof a[i] === 'object' && typeof b[i] === 'object'
-		? merObj(a[i], b[i])
-		: (a[i] = b[i]);
-}
-
 function Reged(exp, req) {
 	this.exp = exp;
 	this.req = req;
@@ -36,6 +30,9 @@ function exp() {
 		&& arguments[1].length === 1
 		&& typeof arguments[1].cache === 'object'
 	) return new Reged(exp, arguments[1]);
-	for (var i = arguments.length - 1; i > 0; --i) merObj(exp, arguments[i]);
+	for (var e, i = arguments.length - 1; i > 0; --i) {
+		e = arguments[i];
+		for (var j in e) exp[j] = e[j];
+	}
 }
 module.exports = exp;
