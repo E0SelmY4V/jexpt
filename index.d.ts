@@ -1,12 +1,12 @@
 interface DestObj {
 	[name: string]: string
 }
-interface InitedReged<M> extends InitlessReged<M> {
+declare class Reged<M> {
 	exp: M
 	req: (id: string) => any
-	pack: (...dests: (string | DestObj)[]) => InitedReged<M>
-	merge: (...ids: string[]) => InitedReged<M>
+	pack: (...dests: (string | DestObj)[]) => Reged<M>
+	merge: (...ids: string[]) => Reged<M>
 }
-declare function exp<M>(exp: M, req: { (id: any): any, cache: {} }): InitedReged<M>
+declare function exp<M>(exp: M, req: { (id: any): any, cache: {} }): Reged<M>
 declare function exp<M>(exp: M, ...mods: any[]): void
 export = exp
