@@ -18,8 +18,7 @@ Reged.prototype = {
 		return this;
 	},
 	merge: function () {
-		var exp = this.exp, req = this.req;
-		for (var e, i = arguments.length - 1; i >= 0; --i) {
+		for (var exp = this.exp, req = this.req, e, i = arguments.length - 1; i >= 0; --i) {
 			e = req('./' + arguments[i]);
 			for (var j in e) exp[j] = e[j];
 		}
@@ -30,6 +29,7 @@ Reged.prototype = {
 function exp() {
 	var exp = arguments[0];
 	if (arguments.length === 2
+		&& typeof arguments[1] === 'function'
 		&& arguments[1].length === 1
 		&& typeof arguments[1].cache === 'object'
 	) return new Reged(exp, arguments[1]);
