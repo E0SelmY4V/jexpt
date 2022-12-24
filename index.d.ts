@@ -7,11 +7,11 @@ declare class Reged<M> {
 	pack: (...dests: (string | DestObj)[]) => Reged<M>
 	merge: (...ids: string[]) => Reged<M>
 }
-declare function exp<M>(exp: M, req: { (id: string): any, cache: {} }): Reged<M>
-declare function exp<M>(exp: M, ...mods: any[]): void
 /**
  * Jexpt - JS Export Tool
  * @version 1.2.2
  * @link https://github.com/E0SelmY4V/jexpt
  */
+declare function exp<M>(exp: M, req: { (id: string): any, cache: {} }): Reged<M>
+declare function exp<M>(exp: M, ...mods: any[]): void
 export = exp
