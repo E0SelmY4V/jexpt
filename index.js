@@ -19,7 +19,10 @@ Reged.prototype = {
 	},
 	merge: function () {
 		var exp = this.exp, req = this.req;
-		for (var i = arguments.length - 1; i >= 0; --i) merObj(exp, req('./' + arguments[i]));
+		for (var e, i = arguments.length - 1; i >= 0; --i) {
+			e = req('./' + arguments[i]);
+			for (var j in e) exp[j] = e[j];
+		}
 		return this;
 	}
 };
