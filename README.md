@@ -26,7 +26,7 @@ Besides, there is another way to export, which packaging tools understand:
 ```javascript
 // index.js
 require('jexpt')(
-  module.exports,
+  exports,
   require('./lib/ooo'),
   require('./xxx'),
   {

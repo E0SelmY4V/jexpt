@@ -27,15 +27,16 @@ Reged.prototype = {
 };
 
 function exp() {
-	var exp = arguments[0];
+	var moe = arguments[0];
 	if (arguments.length === 2
 		&& typeof arguments[1] === 'function'
 		&& arguments[1].length === 1
 		&& typeof arguments[1].cache === 'object'
-	) return new Reged(exp, arguments[1]);
+	) return new Reged(moe, arguments[1]);
 	for (var e, i = arguments.length - 1; i > 0; --i) {
 		e = arguments[i];
-		for (var j in e) exp[j] = e[j];
+		for (var j in e) moe[j] = e[j];
 	}
+	return moe;
 }
 module.exports = exp;

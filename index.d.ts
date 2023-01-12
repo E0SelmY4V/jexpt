@@ -13,5 +13,5 @@ declare class Reged<M> {
  * @link https://github.com/E0SelmY4V/jexpt
  */
 declare function exp<M>(exp: M, req: { (id: string): any, cache: {} }): Reged<M>
-declare function exp<M>(exp: M, ...mods: any[]): void
+declare function exp<M>(exp: M, ...mods: any[]): M
 export = exp
