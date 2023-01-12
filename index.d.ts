@@ -9,7 +9,7 @@ declare class Reged<M> {
 }
 /**
  * Jexpt - JS Export Tool
- * @version 1.2.3
+ * @version 1.2.4
  * @link https://github.com/E0SelmY4V/jexpt
  */
 declare function exp<M>(exp: M, req: { (id: string): any, cache: {} }): Reged<M>
